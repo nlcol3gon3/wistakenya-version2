@@ -1,0 +1,143 @@
+import { r as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
+import { n as VisualPanel, t as Section } from "./Section-DYpdsX_J.mjs";
+import { t as PageHero } from "./PageHero-DnXSGvs8.mjs";
+import { g as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/programs-FJBznm4P.js
+var import_jsx_runtime = require_jsx_runtime();
+var PROGRAMS = [
+	{
+		v: "mentorship",
+		tag: "Mentorship",
+		title: "Mentorship circles",
+		eyebrow: "Mentorship",
+		p: "Structured peer and senior-member mentoring for career navigation, leadership confidence, sector orientation, and professional accountability."
+	},
+	{
+		v: "forum",
+		tag: "Leadership",
+		title: "Leadership forums",
+		eyebrow: "Leadership",
+		p: "Forums that bring practitioners, regulators, and industry leaders together for serious conversations on governance, growth, resilience, and innovation."
+	},
+	{
+		v: "port",
+		tag: "Port visit",
+		title: "Port and site visits",
+		eyebrow: "Industry exposure",
+		p: "Guided visits that help members understand operations across ports, shipping services, logistics hubs, maritime education, and trade infrastructure."
+	},
+	{
+		v: "outreach",
+		tag: "Outreach",
+		title: "Youth and student outreach",
+		eyebrow: "Pipeline",
+		p: "Career talks, student engagements, and exposure opportunities for young women considering maritime, logistics, shipping, and trade professions."
+	}
+];
+var INITIATIVES = [
+	{
+		tag: "Policy",
+		h: "Inclusive maritime policy",
+		p: "Contribution to sector conversations around equity, safety, skills, and participation."
+	},
+	{
+		tag: "Digital",
+		h: "Technology and trade",
+		p: "Exploring digital tools, data, cybersecurity, and innovation in logistics and trade."
+	},
+	{
+		tag: "Blue economy",
+		h: "Sustainability forums",
+		p: "Convening practical discussions on climate, ocean stewardship, and responsible growth."
+	}
+];
+function ProgramsPage() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PageHero, {
+			eyebrow: "Programs",
+			title: "Practical platforms for influence, skill, and connection.",
+			intro: "WISTA Kenya programs are designed to help members build confidence, deepen sector knowledge, and contribute to the future of Kenya's maritime economy.",
+			visual: "forum",
+			visualTag: "Programs",
+			visualLabel: "Workshops and forums"
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "grid gap-8",
+			children: PROGRAMS.map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+				className: `grid gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:grid-cols-2 md:items-center md:p-8 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`,
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(VisualPanel, {
+					variant: p.v,
+					tag: p.tag,
+					aspect: "video"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "min-w-0",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs font-semibold uppercase tracking-[0.24em] text-aqua/90",
+							children: p.eyebrow
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "mt-2 font-display text-2xl text-white md:text-3xl",
+							children: p.title
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-3 text-white/75",
+							children: p.p
+						})
+					]
+				})]
+			}, p.title))
+		}) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
+			band: "deep",
+			eyebrow: "Working groups",
+			title: "Member-led initiatives with practical outcomes.",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "grid gap-5 md:grid-cols-3",
+				children: INITIATIVES.map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+					className: "rounded-3xl border border-white/10 bg-white/[0.04] p-6",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "inline-block rounded-full border border-aqua/40 bg-aqua/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-aqua",
+							children: i.tag
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "mt-4 font-display text-xl text-white",
+							children: i.h
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 text-sm text-white/70",
+							children: i.p
+						})
+					]
+				}, i.h))
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
+			band: "soft",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-6 rounded-3xl border border-aqua/30 bg-gradient-to-br from-[oklch(0.30_0.10_245)] to-[oklch(0.20_0.06_245)] p-8 md:grid-cols-[1.4fr_auto] md:items-center md:p-14",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-xs font-semibold uppercase tracking-[0.24em] text-aqua/90",
+						children: "Get involved"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "mt-3 font-display text-3xl text-white md:text-4xl",
+						children: "Bring your expertise into the room."
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-3 max-w-xl text-white/75",
+						children: "Members can propose sessions, volunteer for committees, host visits, or mentor emerging professionals."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+					to: "/contact",
+					className: "rounded-full bg-aqua px-6 py-3 text-sm font-semibold text-navy transition hover:bg-white",
+					children: "Contact WISTA Kenya"
+				})]
+			})
+		})
+	] });
+}
+//#endregion
+export { ProgramsPage as component };

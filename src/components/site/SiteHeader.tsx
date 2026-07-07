@@ -60,10 +60,15 @@ export function SiteHeader() {
       </div>
 
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-aqua to-ocean font-display text-sm font-bold text-navy">
-            W
-          </div>
+        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="WISTA Kenya home">
+          <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white shadow-[0_12px_32px_-18px_rgba(115,221,255,0.75)]">
+            <img
+              src="/images/brand/wista-kenya-logo-transparent.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute left-1/2 top-0 h-20 max-w-none -translate-x-1/2"
+            />
+          </span>
           <span className="font-display text-lg font-bold tracking-tight text-white">
             WISTA <span className="text-aqua">Kenya</span>
           </span>

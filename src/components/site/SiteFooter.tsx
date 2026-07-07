@@ -7,13 +7,12 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-aqua to-ocean font-display text-sm font-bold text-navy">
-                W
-              </div>
-              <span className="font-display text-xl font-bold tracking-tight text-white">
-                WISTA <span className="text-aqua">Kenya</span>
-              </span>
+            <Link to="/" className="block w-fit" aria-label="WISTA Kenya home">
+              <img
+                src="/images/brand/wista-kenya-logo-white.png"
+                alt="WISTA Kenya"
+                className="h-auto w-32"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm text-white/60">
               Connecting women in shipping, trade, logistics, ports, policy, and the blue

@@ -28,6 +28,9 @@ interface Leader {
   id: string;
   name: string;
   initials: string;
+  photo: string;
+  photoPosition?: string;
+  photoScale?: number;
   role: string;
   org: string;
   highlight: string;
@@ -39,6 +42,8 @@ const EXECUTIVE: Leader[] = [
     id: "elizabeth-wasunna",
     name: "Elizabeth Wasunna",
     initials: "EW",
+    photo: "/images/leadership/elizabethwasuna.jpeg",
+    photoPosition: "50% 34%",
     role: "Chairperson",
     org: "Senior Banking Executive · Absa Bank Kenya",
     highlight: "Champions trade finance and SME growth as a senior leader at Absa Bank Kenya.",
@@ -52,6 +57,8 @@ const EXECUTIVE: Leader[] = [
     id: "liz-marami",
     name: "Elizabeth (Liz) Marami",
     initials: "LM",
+    photo: "/images/leadership/lizmarami.jpeg",
+    photoPosition: "50% 32%",
     role: "Vice Chairperson",
     org: "Kenya's First Female Marine Pilot · Founder, Against the Tide",
     highlight: "Kenya's first female Marine Pilot and East Africa's first woman to qualify in the role.",
@@ -65,6 +72,9 @@ const EXECUTIVE: Leader[] = [
     id: "joyce-kaburu",
     name: "Joyce Kaburu",
     initials: "JK",
+    photo: "/images/leadership/joycekaburu.jpeg",
+    photoPosition: "84% 44%",
+    photoScale: 1.45,
     role: "Secretary",
     org: "Head of Maritime Education & Training · Mount Kenya University Maritime Academy",
     highlight: "23+ years across Mediterranean Shipping Company, Maersk, APM Global Logistics, and SDV Transami.",
@@ -78,6 +88,8 @@ const EXECUTIVE: Leader[] = [
     id: "jacqueline-ayiro",
     name: "Jacqueline Ogada Ayiro",
     initials: "JOA",
+    photo: "/images/leadership/jackieayiro.jpeg",
+    photoPosition: "50% 38%",
     role: "Treasurer",
     org: "Founder & CEO · Jadfad Consultants Ltd",
     highlight: "Programs have empowered thousands of women, youth, and MSMEs across all 47 counties.",
@@ -91,9 +103,25 @@ const EXECUTIVE: Leader[] = [
 
 const BOARD: Leader[] = [
   {
+  id: "nancy-karigithu",
+  name: "Amb. Nancy Karigithu, CBS",
+  initials: "NK",
+  photo: "/images/leadership/nancykarigithu.jpeg",
+  photoPosition: "50% 30%",
+  role: "Board Member",
+  org: "Former Special Envoy & Advisor for Maritime and Blue Economy · Government of Kenya",
+  highlight: "Internationally recognized maritime and Blue Economy leader with over 40 years of shaping maritime governance across Africa and globally.",
+  bio: [
+    "Amb. Nancy Karigithu, CBS is an internationally recognized maritime and Blue Economy leader, diplomat, and policy strategist with over 40 years of experience advancing maritime governance, trade, and sustainable ocean development across Africa and globally.",
+    "She is the founding and first Director General of the Kenya Maritime Authority (KMA) and Kenya's first Principal Secretary for Shipping and Maritime Affairs. She has also served in senior leadership roles at the International Maritime Organization (IMO) and continues to champion regional maritime cooperation, maritime education, and women's leadership through WOMESA."
+  ],
+},
+  {
     id: "joyce-awino",
     name: "Joyce Marangu Awino",
     initials: "JMA",
+    photo: "/images/leadership/joycemarangu.jpeg",
+    photoPosition: "50% 36%",
     role: "Board Member",
     org: "Director, Enforcement & Emergency Response · Kenya Coast Guard Service",
     highlight: "Represents Kenya in regional and global maritime security forums.",
@@ -106,6 +134,8 @@ const BOARD: Leader[] = [
     id: "jane-migongo",
     name: "Jane Victoria Migongo",
     initials: "JVM",
+    photo: "/images/leadership/janevictoria.jpeg",
+    photoPosition: "50% 34%",
     role: "Board Member",
     org: "Advocate & Lead Partner · Salvageways Surveyors Limited",
     highlight: "Recognised by three successive Presidents of Kenya for dedicated national service.",
@@ -118,6 +148,8 @@ const BOARD: Leader[] = [
     id: "nancy-muthoni",
     name: "Nancy Muthoni",
     initials: "NM",
+    photo: "/images/leadership/nancymuthoni.png",
+    photoPosition: "50% 35%",
     role: "Board Member",
     org: "Founder & CEO · First Avenue – Your Property Partner",
     highlight: "President of the Asia Africa Chamber of Commerce and Industry.",
@@ -130,6 +162,8 @@ const BOARD: Leader[] = [
     id: "betty-mutugi",
     name: "Betty Makena Mutugi",
     initials: "BM",
+    photo: "/images/leadership/bettymakena.jpeg",
+    photoPosition: "50% 31%",
     role: "Board Member",
     org: "ITF Ship Inspector · International Transport Workers' Federation",
     highlight: "Three decades advancing seafarers' rights and decent work in the maritime sector.",
@@ -142,6 +176,8 @@ const BOARD: Leader[] = [
     id: "jane-wandurua-grytten",
     name: "Jane Njeri Wandurua-Grytten",
     initials: "JW",
+    photo: "/images/leadership/janenjeri.jpeg",
+    photoPosition: "50% 34%",
     role: "Board Member",
     org: "Maritime Operations & Fisheries Consultant",
     highlight: "First woman to establish and operate a commercial deep-sea fishing company in Kenya.",
@@ -195,11 +231,21 @@ function LeadershipPage() {
             <article
               key={l.id}
               id={l.id}
-              className="grid gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:grid-cols-[220px_minmax(0,1fr)] md:p-8"
+              className="grid scroll-mt-36 gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:grid-cols-[220px_minmax(0,1fr)] md:p-8"
             >
-              <div className="relative">
-                <div className="grid aspect-square w-full max-w-[220px] place-items-center rounded-2xl bg-gradient-to-br from-[oklch(0.42_0.14_235)] to-[oklch(0.22_0.07_245)]">
-                  <span className="font-display text-5xl text-aqua">{l.initials}</span>
+              <div className="relative mx-auto w-full max-w-[220px] md:mx-0">
+                <div className="aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-[0_20px_55px_-36px_rgba(115,221,255,0.75)]">
+                  <img
+                    src={l.photo}
+                    alt={`Portrait of ${l.name}`}
+                    className="h-full w-full object-cover"
+                    style={{
+                      objectPosition: l.photoPosition ?? "50% 36%",
+                      transform: l.photoScale ? `scale(${l.photoScale})` : undefined,
+                      transformOrigin: l.photoPosition ?? "50% 36%",
+                    }}
+                    loading="lazy"
+                  />
                 </div>
               </div>
               <div className="min-w-0">
