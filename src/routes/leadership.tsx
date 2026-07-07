@@ -1,0 +1,251 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { PageHero } from "@/components/site/PageHero";
+import { Section } from "@/components/site/Section";
+import { cn } from "@/lib/utils";
+
+export const Route = createFileRoute("/leadership")({
+  head: () => ({
+    meta: [
+      { title: "Board & Leadership | WISTA Kenya" },
+      {
+        name: "description",
+        content:
+          "Meet the Executive Committee and Board Members leading WISTA Kenya across maritime, trade, and logistics.",
+      },
+      { property: "og:title", content: "Board & Leadership — WISTA Kenya" },
+      {
+        property: "og:description",
+        content:
+          "The women guiding WISTA Kenya across shipping, law, trade finance, port operations, fisheries, and the blue economy.",
+      },
+    ],
+  }),
+  component: LeadershipPage,
+});
+
+interface Leader {
+  id: string;
+  name: string;
+  initials: string;
+  role: string;
+  org: string;
+  highlight: string;
+  bio: string[];
+}
+
+const EXECUTIVE: Leader[] = [
+  {
+    id: "elizabeth-wasunna",
+    name: "Elizabeth Wasunna",
+    initials: "EW",
+    role: "Chairperson",
+    org: "Senior Banking Executive · Absa Bank Kenya",
+    highlight: "Champions trade finance and SME growth as a senior leader at Absa Bank Kenya.",
+    bio: [
+      "Elizabeth Wasunna is a banking executive, trade finance specialist, and advocate for women's economic empowerment with over 20 years of experience supporting businesses across trade, logistics, manufacturing, agribusiness, and regional value chains.",
+      "As a senior leader at Absa Bank Kenya, Elizabeth has spearheaded business banking, trade finance, and SME growth initiatives — helping enterprises access working capital and expand into new markets.",
+      "She serves on several boards and trusts, including the Absa Bank Foundation, Absa Bancassurance, and Absa Asset Management.",
+    ],
+  },
+  {
+    id: "liz-marami",
+    name: "Elizabeth (Liz) Marami",
+    initials: "LM",
+    role: "Vice Chairperson",
+    org: "Kenya's First Female Marine Pilot · Founder, Against the Tide",
+    highlight: "Kenya's first female Marine Pilot and East Africa's first woman to qualify in the role.",
+    bio: [
+      "Liz Marami is a globally recognised maritime professional and advocate for gender inclusion in the maritime sector. She made history as Kenya's first female Marine Pilot and East Africa's first woman to qualify in the role.",
+      "With extensive experience in navigation, pilotage, and international shipping operations, Liz has served on both national and international vessels as a certified Chief Officer across port operations, merchant shipping, and cruise shipping.",
+      "She is the founder of Against the Tide, a platform dedicated to amplifying women's voices in maritime and promoting gender equality within the industry.",
+    ],
+  },
+  {
+    id: "joyce-kaburu",
+    name: "Joyce Kaburu",
+    initials: "JK",
+    role: "Secretary",
+    org: "Head of Maritime Education & Training · Mount Kenya University Maritime Academy",
+    highlight: "23+ years across Mediterranean Shipping Company, Maersk, APM Global Logistics, and SDV Transami.",
+    bio: [
+      "Joyce Kaburu is a maritime transport, logistics, and strategic management expert with over 23 years of experience in the global shipping and maritime industry.",
+      "She has held senior leadership positions with Mediterranean Shipping Company (MSC), Maersk, APM Global Logistics, and SDV Transami.",
+      "Joyce holds an MSc in Maritime Affairs from the World Maritime University in Sweden and an MBA in Strategic Management from Daystar University.",
+    ],
+  },
+  {
+    id: "jacqueline-ayiro",
+    name: "Jacqueline Ogada Ayiro",
+    initials: "JOA",
+    role: "Treasurer",
+    org: "Founder & CEO · Jadfad Consultants Ltd",
+    highlight: "Programs have empowered thousands of women, youth, and MSMEs across all 47 counties.",
+    bio: [
+      "Jacqueline is a seasoned business development expert, trade advisor, and entrepreneurship trainer with over 25 years of experience supporting SME growth, trade promotion, and investment development across Kenya and East Africa.",
+      "She has worked with the World Bank, ILO, USAID, IFC, Microsoft, and national business membership organisations.",
+      "She serves on the Kenya National Chamber of Commerce and Industry and the Asia Africa Chamber of Commerce and Industry.",
+    ],
+  },
+];
+
+const BOARD: Leader[] = [
+  {
+    id: "joyce-awino",
+    name: "Joyce Marangu Awino",
+    initials: "JMA",
+    role: "Board Member",
+    org: "Director, Enforcement & Emergency Response · Kenya Coast Guard Service",
+    highlight: "Represents Kenya in regional and global maritime security forums.",
+    bio: [
+      "Joyce leads Kenya's national efforts in maritime security, safety, environmental protection, and emergency response, with over 25 years of experience shaping the country's maritime governance framework.",
+      "She holds an MSc in International Trade Policy and Trade Law from Lund University and postgraduate qualifications in Maritime Law and Executive Maritime Management from the World Maritime University.",
+    ],
+  },
+  {
+    id: "jane-migongo",
+    name: "Jane Victoria Migongo",
+    initials: "JVM",
+    role: "Board Member",
+    org: "Advocate & Lead Partner · Salvageways Surveyors Limited",
+    highlight: "Recognised by three successive Presidents of Kenya for dedicated national service.",
+    bio: [
+      "Jane is an Advocate of the High Court of Kenya, Certified Marine Surveyor, and Court Annexed Mediator with over four decades of experience in maritime affairs, insurance risk management, and dispute resolution.",
+      "Based in Mombasa, she is Lead Partner at Salvageways Surveyors Limited and combines legal expertise with technical maritime knowledge.",
+    ],
+  },
+  {
+    id: "nancy-muthoni",
+    name: "Nancy Muthoni",
+    initials: "NM",
+    role: "Board Member",
+    org: "Founder & CEO · First Avenue – Your Property Partner",
+    highlight: "President of the Asia Africa Chamber of Commerce and Industry.",
+    bio: [
+      "Nancy is a business leader, real estate strategist, media entrepreneur, and advocate for trade and investment with more than two decades of experience across Africa.",
+      "She is Founder of The Property Show with Nancy — Kenya's pioneering real estate television platform — and has advised on landmark developments across multiple African markets.",
+    ],
+  },
+  {
+    id: "betty-mutugi",
+    name: "Betty Makena Mutugi",
+    initials: "BM",
+    role: "Board Member",
+    org: "ITF Ship Inspector · International Transport Workers' Federation",
+    highlight: "Three decades advancing seafarers' rights and decent work in the maritime sector.",
+    bio: [
+      "Betty is a seasoned maritime labour advocate and trade union leader working to protect seafarers' rights and promote compliance with international maritime labour standards.",
+      "She began her career at the Kenya Ports Authority and has been a strong advocate for gender equality, youth empowerment, and workers' rights.",
+    ],
+  },
+  {
+    id: "jane-wandurua-grytten",
+    name: "Jane Njeri Wandurua-Grytten",
+    initials: "JW",
+    role: "Board Member",
+    org: "Maritime Operations & Fisheries Consultant",
+    highlight: "First woman to establish and operate a commercial deep-sea fishing company in Kenya.",
+    bio: [
+      "Jane is a maritime operations specialist, fisheries consultant, and Blue Economy leader with extensive experience in deep-sea fishing, maritime logistics, and international trade.",
+      "She has led fisheries research, stock assessments, and capacity-building programs that have trained over 1,000 Kenyan artisanal fishers.",
+    ],
+  },
+];
+
+function LeadershipPage() {
+  const [tab, setTab] = useState<"executive" | "board">("executive");
+  const list = tab === "executive" ? EXECUTIVE : BOARD;
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Board & Leadership"
+        title="The women guiding WISTA Kenya."
+        intro="An Executive Committee and Board of respected professionals from across shipping, law, trade finance, port operations, fisheries, and the wider blue economy — giving their time and expertise to advance women's leadership."
+        visual="leadership"
+        visualTag="Leadership"
+        visualLabel="Board & leadership"
+      />
+
+      <Section
+        eyebrow="Governance"
+        title="An Executive Committee and Board grounded in experience."
+        intro="The Executive Committee oversees strategy, governance, and member engagement, supported by a wider Board of professionals who serve on committees, mentor members, and represent WISTA Kenya across the sector."
+      >
+        <div className="mb-10 inline-flex rounded-full border border-white/15 bg-white/[0.04] p-1">
+          {(["executive", "board"] as const).map((k) => (
+            <button
+              key={k}
+              type="button"
+              onClick={() => setTab(k)}
+              className={cn(
+                "rounded-full px-5 py-2 text-sm font-semibold capitalize transition",
+                tab === k
+                  ? "bg-aqua text-navy shadow-[0_10px_30px_-12px_rgba(115,221,255,0.6)]"
+                  : "text-white/70 hover:text-white",
+              )}
+            >
+              {k === "executive" ? "Executive Committee" : "Board Members"}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid gap-6">
+          {list.map((l) => (
+            <article
+              key={l.id}
+              id={l.id}
+              className="grid gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:grid-cols-[220px_minmax(0,1fr)] md:p-8"
+            >
+              <div className="relative">
+                <div className="grid aspect-square w-full max-w-[220px] place-items-center rounded-2xl bg-gradient-to-br from-[oklch(0.42_0.14_235)] to-[oklch(0.22_0.07_245)]">
+                  <span className="font-display text-5xl text-aqua">{l.initials}</span>
+                </div>
+              </div>
+              <div className="min-w-0">
+                <span className="inline-block rounded-full border border-aqua/40 bg-aqua/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-aqua">
+                  {l.role}
+                </span>
+                <h3 className="mt-3 font-display text-2xl text-white md:text-3xl">
+                  {l.name}
+                </h3>
+                <p className="mt-1 text-sm text-aqua/80">{l.org}</p>
+                <div className="mt-4 space-y-3 text-sm text-white/75">
+                  {l.bio.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <p className="mt-5 border-l-2 border-aqua/60 pl-4 text-sm italic text-white/85">
+                  {l.highlight}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section band="soft">
+        <div className="grid gap-6 rounded-3xl border border-aqua/30 bg-gradient-to-br from-[oklch(0.30_0.10_245)] to-[oklch(0.20_0.06_245)] p-8 md:grid-cols-[1.4fr_auto] md:items-center md:p-14">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-aqua/90">
+              Get involved
+            </p>
+            <h2 className="mt-3 font-display text-3xl text-white md:text-4xl">
+              Add your voice to this board's work.
+            </h2>
+            <p className="mt-3 max-w-xl text-white/75">
+              WISTA Kenya welcomes members ready to serve on committees, mentor emerging
+              professionals, and help shape the association's next chapter.
+            </p>
+          </div>
+          <Link
+            to="/membership"
+            className="rounded-full bg-aqua px-6 py-3 text-sm font-semibold text-navy transition hover:bg-white"
+          >
+            Join WISTA Kenya
+          </Link>
+        </div>
+      </Section>
+    </>
+  );
+}
